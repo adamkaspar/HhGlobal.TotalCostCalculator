@@ -2,6 +2,7 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using HhGlobal.TotalCostCalculator.API.IoC;
+using HhGlobal.TotalCostCalculator.BLL.IoC;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,7 +30,11 @@ builder.Services.AddAutoMapper(typeof(Program));
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 
 //Register Autofac modules
-builder.Host.ConfigureContainer<ContainerBuilder>(builder => builder.RegisterModule(new ApiModule()));
+builder.Host.ConfigureContainer<ContainerBuilder>(builder =>
+{
+    builder.RegisterModule(new ApiModule());
+    builder.RegisterModule(new BllModule());
+});
 
 var app = builder.Build();
 

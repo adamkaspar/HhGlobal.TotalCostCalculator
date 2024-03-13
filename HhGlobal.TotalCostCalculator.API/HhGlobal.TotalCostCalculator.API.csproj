@@ -20,8 +20,4 @@
     <ProjectReference Include="..\HhGlobal.TotalCostCalculator.BLL\HhGlobal.TotalCostCalculator.BLL.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
 </Project>

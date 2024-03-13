@@ -1,8 +1,8 @@
-﻿﻿using Autofac;
+﻿using Autofac;
 
-namespace HhGlobal.TotalCostCalculator.API.IoC;
+namespace HhGlobal.TotalCostCalculator.BLL.IoC;
 
-public class ApiModule : Module
+public class BllModule : Module
 {
     protected override void Load(ContainerBuilder builder)
     {
