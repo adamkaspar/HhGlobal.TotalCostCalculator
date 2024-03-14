@@ -1,12 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\HhGlobal.TotalCostCalculator.DAL\HhGlobal.TotalCostCalculator.DAL.csproj" />
+    <PackageReference Include="Autofac" Version="8.0.0" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="9.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="8.0.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Autofac" Version="8.0.0" />
-    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="9.0.0" />
+    <Folder Include="Common\" />
   </ItemGroup>
 
   <PropertyGroup>

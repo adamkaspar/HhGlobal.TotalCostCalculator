@@ -3,6 +3,7 @@ using Autofac.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using HhGlobal.TotalCostCalculator.API.IoC;
 using HhGlobal.TotalCostCalculator.BLL.IoC;
+using HhGlobal.TotalCostCalculator.BLL.Common;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +23,9 @@ builder.Services.AddSwaggerGen(c =>
         Description = "Api to support total cost calculations"
     });
 });
+
+builder.Services.Configure<Configuration>(
+    builder.Configuration.GetSection("CostCalculations"));
 
 //Register AutoMapper as mapping framework
 builder.Services.AddAutoMapper(typeof(Program));
