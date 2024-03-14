@@ -2,10 +2,15 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using HhGlobal.TotalCostCalculator.API.IoC;
+using HhGlobal.TotalCostCalculator.API.Middleware;
 using HhGlobal.TotalCostCalculator.BLL.IoC;
 using HhGlobal.TotalCostCalculator.BLL.Common;
 
 var builder = WebApplication.CreateBuilder(args);
+
+//Add console log provider
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
 
 // Add services to the container.
 builder.Services.AddControllers();
@@ -48,6 +53,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+// Register global error handler
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 app.UseHttpsRedirection();
 
