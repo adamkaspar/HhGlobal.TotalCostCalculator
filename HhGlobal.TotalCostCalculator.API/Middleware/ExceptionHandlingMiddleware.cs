@@ -34,8 +34,6 @@ public class ExceptionHandlingMiddleware
         ExceptionDto response = exception switch
         {
             ApplicationException _ => new ExceptionDto { CorrelationId = correlationId, StatusCode = HttpStatusCode.BadRequest, Message = "Application exception occurred." },
-            KeyNotFoundException _ => new ExceptionDto { CorrelationId = correlationId, StatusCode = HttpStatusCode.NotFound, Message = "The request key not found." },
-            UnauthorizedAccessException _ => new ExceptionDto { CorrelationId = correlationId, StatusCode = HttpStatusCode.Unauthorized, Message = "Unauthorized." },
             _ => new ExceptionDto { CorrelationId = correlationId, StatusCode = HttpStatusCode.InternalServerError, Message = "Internal server error. Please retry later." }
         };
 

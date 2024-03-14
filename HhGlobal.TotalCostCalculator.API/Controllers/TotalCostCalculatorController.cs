@@ -19,7 +19,9 @@ public class TotalCostCalculatorController : ControllerBase
     => (TotalCostCalculatorService, Mapper) = (totalCostCalculatorService, mapper);
 
     [SwaggerOperation(Summary = "Runs job and returns final calculation.")]
-    [SwaggerResponse(200)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(ExceptionDto))]
+    [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ExceptionDto))]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(JobResultDto))]    
     [HttpPost("/Calculate")]
     public async Task<ActionResult<JobResultDto>> CalculateCost(JobDto jobDto, CancellationToken cancellationToken)
     {
