@@ -1,6 +1,6 @@
 ﻿namespace HhGlobal.TotalCostCalculator.API.Dto;
 
-public class JobResponseDto
+public class JobResultDto
 {
     public List<PrintItemDto> PrintItems{ get; set; }
 

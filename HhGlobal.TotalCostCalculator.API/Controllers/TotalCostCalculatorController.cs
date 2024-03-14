@@ -21,12 +21,12 @@ public class TotalCostCalculatorController : ControllerBase
     [SwaggerOperation(Summary = "Runs job and returns final calculation.")]
     [SwaggerResponse(200)]
     [HttpPost("/Calculate")]
-    public async Task<ActionResult<JobResponseDto>> CalculateCost(JobRequestDto jobRequestDto, CancellationToken cancellationToken)
+    public async Task<ActionResult<JobResultDto>> CalculateCost(JobDto jobDto, CancellationToken cancellationToken)
     {
-        var job = Mapper.Map<Job>(jobRequestDto);
+        var job = Mapper.Map<Job>(jobDto);
         var jobResult = await TotalCostCalculatorService.CalculateTotalCostAsync(job, cancellationToken);
 
-        var result = Mapper.Map<JobResponseDto>(jobResult);
+        var result = Mapper.Map<JobResultDto>(jobResult);
 
         return Ok(result);
     }

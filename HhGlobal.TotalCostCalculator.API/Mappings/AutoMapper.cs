@@ -8,8 +8,8 @@ public class AutoMapper : Profile
 {
     public AutoMapper()
     {
-        CreateMap<JobRequestDto, Job>();
-        CreateMap<JobResult, JobResponseDto>();
+        CreateMap<JobDto, Job>();
+        CreateMap<JobResult, JobResultDto>();
         CreateMap<PrintItemDto, PrintItem>();
         CreateMap<PrintItem, PrintItemDto>();
     }

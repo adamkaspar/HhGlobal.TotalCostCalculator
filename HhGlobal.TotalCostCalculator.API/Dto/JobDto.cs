@@ -1,6 +1,6 @@
 namespace HhGlobal.TotalCostCalculator.API.Dto;
 
-public class JobRequestDto
+public class JobDto
 {
     public bool IsExtraMargin{ get; set; }
 

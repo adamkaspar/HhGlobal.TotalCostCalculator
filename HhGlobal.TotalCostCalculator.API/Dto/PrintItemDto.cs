@@ -2,7 +2,9 @@
 
 public class PrintItemDto
 {
-    public string ItemType{ get; set; }
+    public string Name { get; set; }    
 
-    public double Cost{ get; set; }
+    public double Cost { get; set; }
+
+    public bool IsExempt { get; set; }
 }
