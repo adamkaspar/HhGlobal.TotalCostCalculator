@@ -10,7 +10,6 @@ public class AutoMapper : Profile
     {
         CreateMap<JobDto, Job>();
         CreateMap<JobResult, JobResultDto>();
-        CreateMap<PrintItemDto, PrintItem>();
-        CreateMap<PrintItem, PrintItemDto>();
+        CreateMap<PrintItemDto, PrintItem>().ReverseMap();
     }
 }

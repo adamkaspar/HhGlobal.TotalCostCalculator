@@ -1,35 +1,29 @@
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using HhGlobal.TotalCostCalculator.BLL.Models;
 using HhGlobal.TotalCostCalculator.BLL.Calculators;
+using HhGlobal.TotalCostCalculator.BLL.Common;
 
 namespace HhGlobal.TotalCostCalculator.BLL.Services;
 
 public class TotalCostCalculatorService : ITotalCostCalculatorService
 {
+    Configuration Configuration{ get; }
+
     ILogger<TotalCostCalculatorService> Logger{ get; }
 
-    IItemCostCalculator ItemCostCalculator { get; }
+    IJobCostCalculator JobCostCalculator { get; }
 
-    public TotalCostCalculatorService(IItemCostCalculator itemCostCalculator, ILogger<TotalCostCalculatorService> logger) 
-    => (ItemCostCalculator, Logger) = (itemCostCalculator, logger);
+    public TotalCostCalculatorService(IOptions<Configuration> configuration, IJobCostCalculator jobCostCalculator, ILogger<TotalCostCalculatorService> logger) 
+    => (Configuration, JobCostCalculator, Logger) = (configuration.Value, jobCostCalculator, logger);
 
     public async Task<JobResult> CalculateTotalCostAsync(Job job, CancellationToken cancellationToken)
     {
         Logger.LogDebug("CalculateTotalCostAsync started.");
 
-        var tasks = job.PrintItems.Select(printItem => ItemCostCalculator.CalculateItemCostAsync(printItem, job.IsExtraMargin, cancellationToken));
+        var result = await JobCostCalculator.CalculateJobCostAsync(job, cancellationToken);
 
-        await Task.WhenAll(tasks);
-
-        var totalCost = job.PrintItems.Sum(printItem => printItem.Cost);
-
-        Logger.LogDebug($"CalculateTotalCostAsync finished. Total cost: {totalCost}");
-
-        var result = new JobResult
-        {
-            PrintItems = job.PrintItems,
-            Total = totalCost
-        };
+        Logger.LogDebug($"CalculateTotalCostAsync finished.");
 
         return result;
     }

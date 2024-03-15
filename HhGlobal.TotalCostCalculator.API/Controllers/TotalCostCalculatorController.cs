@@ -22,8 +22,8 @@ public class TotalCostCalculatorController : ControllerBase
     [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(ExceptionDto))]
     [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ExceptionDto))]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(JobResultDto))]    
-    [HttpPost("/Calculate")]
-    public async Task<ActionResult<JobResultDto>> CalculateCost(JobDto jobDto, CancellationToken cancellationToken)
+    [HttpPost("/CalculateTotalCost")]
+    public async Task<ActionResult<JobResultDto>> CalculateTotalCost(JobDto jobDto, CancellationToken cancellationToken)
     {
         var job = Mapper.Map<Job>(jobDto);
         var jobResult = await TotalCostCalculatorService.CalculateTotalCostAsync(job, cancellationToken);

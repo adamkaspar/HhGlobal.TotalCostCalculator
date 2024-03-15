@@ -3,6 +3,7 @@ using Autofac.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using HhGlobal.TotalCostCalculator.API.IoC;
 using HhGlobal.TotalCostCalculator.API.Middleware;
+using HhGlobal.TotalCostCalculator.API.Converters;
 using HhGlobal.TotalCostCalculator.BLL.IoC;
 using HhGlobal.TotalCostCalculator.BLL.Common;
 
@@ -13,7 +14,9 @@ builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
 
 // Add services to the container.
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(options => {
+        options.JsonSerializerOptions.Converters.Add(new DoubleConverter());
+    });
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
