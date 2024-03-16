@@ -26,9 +26,6 @@ Tests project contains unit and integration tests, that covers basic test scenar
 
 TotalCostCalculator runs on .NET 8, so .NET 8 runtime is necessary to [install](https://dotnet.microsoft.com/en-us/download/dotnet/8.0).
 
-## Usage
-
-To run 
 
 ## Contributing
 

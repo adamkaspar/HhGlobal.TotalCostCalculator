@@ -14,7 +14,8 @@ public class JobCostCalculator : IJobCostCalculator
     public JobCostCalculator(IOptions<Configuration> configuration, ILogger<JobCostCalculator> logger) 
     => (Configuration, Logger) = (configuration.Value, logger);        
 
-    public JobResult CalculateJobCost(Job job){
+    public JobResult CalculateJobCost(Job job)
+    {
         Logger.LogDebug("CalculateJobCost started.");
 
         var totalJobCostWithMargin = job.PrintItems.Sum(printItem => CalculateItemCost(printItem, job.IsExtraMargin));
