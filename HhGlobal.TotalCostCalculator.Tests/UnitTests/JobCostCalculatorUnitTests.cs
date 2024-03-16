@@ -1,7 +1,6 @@
 using Xunit;
 using Moq;
 using FluentAssertions;
-using System.Threading;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using HhGlobal.TotalCostCalculator.BLL.Calculators;
@@ -10,15 +9,15 @@ using HhGlobal.TotalCostCalculator.BLL.Models;
 
 namespace HhGlobal.TotalCostCalculator.Tests.UnitTests;
 
-public class JobCostCalculatorUnitTest{
-    
+public class JobCostCalculatorUnitTests
+{    
     Mock<IOptions<Configuration>> ConfigurationMock{ get; }
 
     Mock<ILogger<JobCostCalculator>> LoggerMock{ get; }
 
     IJobCostCalculator JobCostCalculator { get; }
 
-    public JobCostCalculatorUnitTest()
+    public JobCostCalculatorUnitTests()
     {
         //Configuration setup
         ConfigurationMock = new Mock<IOptions<Configuration>>();
@@ -42,7 +41,7 @@ public class JobCostCalculatorUnitTest{
     [Fact]
     public void CalculateJobCost_ShouldReturnJob_WithExtraMargin_ForItem_WithExtempt()
     {                       
-        var Job = new Job{
+        var job = new Job{
             IsExtraMargin = true,
             PrintItems = new List<PrintItem>{
                 new PrintItem{
@@ -53,7 +52,7 @@ public class JobCostCalculatorUnitTest{
             }
         };
 
-        var result = JobCostCalculator.CalculateJobCost(Job);
+        var result = JobCostCalculator.CalculateJobCost(job);
         
         result.Should().BeEquivalentTo(new JobResult{
             PrintItems = new List<PrintItem>{
@@ -70,7 +69,7 @@ public class JobCostCalculatorUnitTest{
     [Fact]
     public void CalculateJobCost_ShouldReturnJob_WithExtraMargin_ForItem_WithoutExtempt()
     {                       
-        var Job = new Job{
+        var job = new Job{
             IsExtraMargin = true,
             PrintItems = new List<PrintItem>{
                 new PrintItem{
@@ -81,7 +80,7 @@ public class JobCostCalculatorUnitTest{
             }
         };
 
-        var result = JobCostCalculator.CalculateJobCost(Job);
+        var result = JobCostCalculator.CalculateJobCost(job);
         
         result.Should().BeEquivalentTo(new JobResult{
             PrintItems = new List<PrintItem>{
@@ -98,7 +97,7 @@ public class JobCostCalculatorUnitTest{
     [Fact]
     public void CalculateJobCost_ShouldReturnJob_WithoutExtraMargin_ForItem_WithoutExtempt()
     {                       
-        var Job = new Job{
+        var job = new Job{
             IsExtraMargin = false,
             PrintItems = new List<PrintItem>{
                 new PrintItem{
@@ -109,7 +108,7 @@ public class JobCostCalculatorUnitTest{
             }
         };
 
-        var result = JobCostCalculator.CalculateJobCost(Job);
+        var result = JobCostCalculator.CalculateJobCost(job);
         
         result.Should().BeEquivalentTo(new JobResult{
             PrintItems = new List<PrintItem>{
@@ -126,7 +125,7 @@ public class JobCostCalculatorUnitTest{
     [Fact]
     public void CalculateJobCost_ShouldReturnJob_WithExtraMargin_ForItem_WithoutExtempt_AndItem_WithExtempt()
     {                       
-        var Job = new Job{
+        var job = new Job{
             IsExtraMargin = true,
             PrintItems = new List<PrintItem>{
                 new PrintItem{
@@ -142,7 +141,7 @@ public class JobCostCalculatorUnitTest{
             }
         };
 
-        var result = JobCostCalculator.CalculateJobCost(Job);
+        var result = JobCostCalculator.CalculateJobCost(job);
         
         result.Should().BeEquivalentTo(new JobResult{
             PrintItems = new List<PrintItem>{
@@ -164,7 +163,7 @@ public class JobCostCalculatorUnitTest{
     [Fact]
     public void CalculateJobCost_ShouldReturnJob_WithExtraMargin_ForItem_WithExtempt_AndItem_WithExtempt()
     {                       
-        var Job = new Job{
+        var job = new Job{
             IsExtraMargin = true,
             PrintItems = new List<PrintItem>{
                 new PrintItem{
@@ -180,7 +179,7 @@ public class JobCostCalculatorUnitTest{
             }
         };
 
-        var result = JobCostCalculator.CalculateJobCost(Job);
+        var result = JobCostCalculator.CalculateJobCost(job);
         
         result.Should().BeEquivalentTo(new JobResult{
             PrintItems = new List<PrintItem>{

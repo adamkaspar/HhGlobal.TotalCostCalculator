@@ -22,7 +22,7 @@ public class TotalCostCalculatorController : ControllerBase
     [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(ExceptionDto))]
     [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ExceptionDto))]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(JobResultDto))]    
-    [HttpPost("/CalculateTotalCost")]
+    [HttpPost("CalculateTotalCost")]
     public ActionResult<JobResultDto> CalculateTotalCost(JobDto jobDto)
     {
         var job = Mapper.Map<Job>(jobDto);
