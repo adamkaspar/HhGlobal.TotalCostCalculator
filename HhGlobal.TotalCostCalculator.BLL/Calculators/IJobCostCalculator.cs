@@ -4,5 +4,5 @@ namespace HhGlobal.TotalCostCalculator.BLL.Calculators;
 
 public interface IJobCostCalculator
 {
-    Task<JobResult> CalculateJobCostAsync(Job job, CancellationToken cancellationToken);
+    JobResult CalculateJobCost(Job job);
 }

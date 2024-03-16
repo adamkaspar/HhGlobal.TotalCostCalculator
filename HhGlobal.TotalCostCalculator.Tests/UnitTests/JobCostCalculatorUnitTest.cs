@@ -40,7 +40,7 @@ public class JobCostCalculatorUnitTest{
     }
 
     [Fact]
-    public async Task CalculateJobCostAsync_ShouldReturnJob_WithExtraMargin_ForItem_WithExtempt()
+    public void CalculateJobCost_ShouldReturnJob_WithExtraMargin_ForItem_WithExtempt()
     {                       
         var Job = new Job{
             IsExtraMargin = true,
@@ -53,7 +53,7 @@ public class JobCostCalculatorUnitTest{
             }
         };
 
-        var result = await JobCostCalculator.CalculateJobCostAsync(Job, CancellationToken.None);
+        var result = JobCostCalculator.CalculateJobCost(Job);
         
         result.Should().BeEquivalentTo(new JobResult{
             PrintItems = new List<PrintItem>{
@@ -68,7 +68,7 @@ public class JobCostCalculatorUnitTest{
     }
 
     [Fact]
-    public async Task CalculateJobCostAsync_ShouldReturnJob_WithExtraMargin_ForItem_WithoutExtempt()
+    public void CalculateJobCost_ShouldReturnJob_WithExtraMargin_ForItem_WithoutExtempt()
     {                       
         var Job = new Job{
             IsExtraMargin = true,
@@ -81,7 +81,7 @@ public class JobCostCalculatorUnitTest{
             }
         };
 
-        var result = await JobCostCalculator.CalculateJobCostAsync(Job, CancellationToken.None);
+        var result = JobCostCalculator.CalculateJobCost(Job);
         
         result.Should().BeEquivalentTo(new JobResult{
             PrintItems = new List<PrintItem>{
@@ -96,7 +96,7 @@ public class JobCostCalculatorUnitTest{
     }
 
     [Fact]
-    public async Task CalculateJobCostAsync_ShouldReturnJob_WithoutExtraMargin_ForItem_WithoutExtempt()
+    public void CalculateJobCost_ShouldReturnJob_WithoutExtraMargin_ForItem_WithoutExtempt()
     {                       
         var Job = new Job{
             IsExtraMargin = false,
@@ -109,7 +109,7 @@ public class JobCostCalculatorUnitTest{
             }
         };
 
-        var result = await JobCostCalculator.CalculateJobCostAsync(Job, CancellationToken.None);
+        var result = JobCostCalculator.CalculateJobCost(Job);
         
         result.Should().BeEquivalentTo(new JobResult{
             PrintItems = new List<PrintItem>{
@@ -124,7 +124,7 @@ public class JobCostCalculatorUnitTest{
     }
 
     [Fact]
-    public async Task CalculateJobCostAsync_ShouldReturnJob_WithExtraMargin_ForItem_WithoutExtempt_AndItem_WithExtempt()
+    public void CalculateJobCost_ShouldReturnJob_WithExtraMargin_ForItem_WithoutExtempt_AndItem_WithExtempt()
     {                       
         var Job = new Job{
             IsExtraMargin = true,
@@ -142,7 +142,7 @@ public class JobCostCalculatorUnitTest{
             }
         };
 
-        var result = await JobCostCalculator.CalculateJobCostAsync(Job, CancellationToken.None);
+        var result = JobCostCalculator.CalculateJobCost(Job);
         
         result.Should().BeEquivalentTo(new JobResult{
             PrintItems = new List<PrintItem>{
@@ -162,7 +162,7 @@ public class JobCostCalculatorUnitTest{
     }
 
     [Fact]
-    public async Task CalculateJobCostAsync_ShouldReturnJob_WithExtraMargin_ForItem_WithExtempt_AndItem_WithExtempt()
+    public void CalculateJobCost_ShouldReturnJob_WithExtraMargin_ForItem_WithExtempt_AndItem_WithExtempt()
     {                       
         var Job = new Job{
             IsExtraMargin = true,
@@ -180,7 +180,7 @@ public class JobCostCalculatorUnitTest{
             }
         };
 
-        var result = await JobCostCalculator.CalculateJobCostAsync(Job, CancellationToken.None);
+        var result = JobCostCalculator.CalculateJobCost(Job);
         
         result.Should().BeEquivalentTo(new JobResult{
             PrintItems = new List<PrintItem>{

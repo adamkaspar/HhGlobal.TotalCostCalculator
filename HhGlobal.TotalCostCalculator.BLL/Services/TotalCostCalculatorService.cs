@@ -16,14 +16,13 @@ public class TotalCostCalculatorService : ITotalCostCalculatorService
 
     public TotalCostCalculatorService(IOptions<Configuration> configuration, IJobCostCalculator jobCostCalculator, ILogger<TotalCostCalculatorService> logger) 
     => (Configuration, JobCostCalculator, Logger) = (configuration.Value, jobCostCalculator, logger);
+    
+    public JobResult CalculateTotalCost(Job job){
+        Logger.LogDebug("CalculateTotalCost started.");
 
-    public async Task<JobResult> CalculateTotalCostAsync(Job job, CancellationToken cancellationToken)
-    {
-        Logger.LogDebug("CalculateTotalCostAsync started.");
+        var result = JobCostCalculator.CalculateJobCost(job);
 
-        var result = await JobCostCalculator.CalculateJobCostAsync(job, cancellationToken);
-
-        Logger.LogDebug($"CalculateTotalCostAsync finished.");
+        Logger.LogDebug($"CalculateTotalCost finished.");
 
         return result;
     }

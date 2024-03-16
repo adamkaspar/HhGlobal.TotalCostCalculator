@@ -23,10 +23,10 @@ public class TotalCostCalculatorController : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ExceptionDto))]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(JobResultDto))]    
     [HttpPost("/CalculateTotalCost")]
-    public async Task<ActionResult<JobResultDto>> CalculateTotalCost(JobDto jobDto, CancellationToken cancellationToken)
+    public ActionResult<JobResultDto> CalculateTotalCost(JobDto jobDto)
     {
         var job = Mapper.Map<Job>(jobDto);
-        var jobResult = await TotalCostCalculatorService.CalculateTotalCostAsync(job, cancellationToken);
+        var jobResult = TotalCostCalculatorService.CalculateTotalCost(job);
 
         var result = Mapper.Map<JobResultDto>(jobResult);
 
