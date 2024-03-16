@@ -3,22 +3,22 @@
 TotalCostCalculator is a .NET 8 project, that process jobs with items and returns computed margin and tax for a whole job.
 Whole solution is divided into 3 projetcs:
 ```
-├── TotalCostCalculator.sln
-│   ├── TotalCostCalculator.API.csproj
-│   ├── TotalCostCalculator.BLL.csproj
-│   ├── TotalCostCalculator.Tests.csproj
+├── HhGlobal.TotalCostCalculator.sln
+│   ├── HhGlobal.TotalCostCalculator.API.csproj
+│   ├── HhGlobal.TotalCostCalculator.BLL.csproj
+│   ├── HhGlobal.TotalCostCalculator.Tests.csproj
 └── .gitignore
 ```
-### TotalCostCalculator.API
+### HhGlobal.TotalCostCalculator.API
 
 This project contains basic controller for starting the whole job computation and basic double json converter.
 
-### TotalCostCalculator.BLL
+### HhGlobal.TotalCostCalculator.BLL
 
 This project contains whole computational logic. Entry poin is TotalCostCalculatorService, that calls Calculator class. 
 This class then computes final price with tax and margin for given job.
 
-### TotalCostCalculator.Tests
+### HhGlobal.TotalCostCalculator.Tests
 
 Tests project contains unit and integration tests, that covers basic scenarios.
 
