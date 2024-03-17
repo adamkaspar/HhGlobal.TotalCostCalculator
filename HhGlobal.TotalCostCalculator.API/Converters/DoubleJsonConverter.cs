@@ -4,11 +4,11 @@ using System.Text.Json;
 namespace HhGlobal.TotalCostCalculator.API.Converters;
 
 
-public class DoubleConverter : JsonConverter<double>
+public class DoubleJsonConverter : JsonConverter<double>
 {
     IConfiguration Configuration{ get; }
 
-    public DoubleConverter(IConfiguration configuration) => Configuration = configuration;
+    public DoubleJsonConverter(IConfiguration configuration) => Configuration = configuration;
 
     public override double Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {

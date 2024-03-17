@@ -15,7 +15,7 @@ builder.Logging.AddConsole();
 
 // Add services to the container.
 builder.Services.AddControllers().AddJsonOptions(options => {
-        options.JsonSerializerOptions.Converters.Add(new DoubleConverter(builder.Configuration));
+        options.JsonSerializerOptions.Converters.Add(new DoubleJsonConverter(builder.Configuration));
     });
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
