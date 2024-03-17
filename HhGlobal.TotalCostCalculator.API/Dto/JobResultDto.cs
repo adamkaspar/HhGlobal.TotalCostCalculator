@@ -2,7 +2,7 @@
 
 public class JobResultDto
 {
-    public List<PrintItemDto> PrintItems{ get; set; }
+    public List<PrintItemResultDto> PrintItems{ get; set; }
 
     public double Total{ get; set; }
 }

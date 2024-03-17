@@ -36,12 +36,11 @@ public class JobCostCalculatorIntegrationTests
 
         var result = await PostJobAsync(job);
         
-        result.Should().BeEquivalentTo(new JobResult{
-            PrintItems = new List<PrintItem>{
-                new PrintItem{
+        result.Should().BeEquivalentTo(new JobResultDto{
+            PrintItems = new List<PrintItemResultDto>{
+                new PrintItemResultDto{
                     Name = "yoyo", 
-                    Cost = 100,
-                    IsExempt = true
+                    Cost = 100
                 }                
             },
             Total = 116
@@ -64,12 +63,11 @@ public class JobCostCalculatorIntegrationTests
 
         var result = await PostJobAsync(job);
         
-        result.Should().BeEquivalentTo(new JobResult{
-            PrintItems = new List<PrintItem>{
-                new PrintItem{
+        result.Should().BeEquivalentTo(new JobResultDto{
+            PrintItems = new List<PrintItemResultDto>{
+                new PrintItemResultDto{
                     Name = "yoyo", 
-                    Cost = 107,
-                    IsExempt = false
+                    Cost = 107
                 }                
             },
             Total = 123
@@ -92,12 +90,11 @@ public class JobCostCalculatorIntegrationTests
 
         var result = await PostJobAsync(job);
         
-        result.Should().BeEquivalentTo(new JobResult{
-            PrintItems = new List<PrintItem>{
-                new PrintItem{
+        result.Should().BeEquivalentTo(new JobResultDto{
+            PrintItems = new List<PrintItemResultDto>{
+                new PrintItemResultDto{
                     Name = "yoyo", 
-                    Cost = 107,
-                    IsExempt = false
+                    Cost = 107
                 }                
             },
             Total = 118
@@ -125,17 +122,15 @@ public class JobCostCalculatorIntegrationTests
 
         var result = await PostJobAsync(job);
         
-        result.Should().BeEquivalentTo(new JobResult{
-            PrintItems = new List<PrintItem>{
-                new PrintItem{
+        result.Should().BeEquivalentTo(new JobResultDto{
+            PrintItems = new List<PrintItemResultDto>{
+                new PrintItemResultDto{
                     Name = "envelopes", 
-                    Cost = 556.4,
-                    IsExempt = false
+                    Cost = 556.4
                 },
-                new PrintItem{
+                new PrintItemResultDto{
                     Name = "letterhead", 
-                    Cost = 1983.37,
-                    IsExempt = true
+                    Cost = 1983.37
                 }                
             },
             Total = 2940.3
@@ -163,17 +158,15 @@ public class JobCostCalculatorIntegrationTests
 
         var result = await PostJobAsync(job);
         
-        result.Should().BeEquivalentTo(new JobResult{
-            PrintItems = new List<PrintItem>{
-                new PrintItem{
+        result.Should().BeEquivalentTo(new JobResultDto{
+            PrintItems = new List<PrintItemResultDto>{
+                new PrintItemResultDto{
                     Name = "frisbees", 
-                    Cost = 19385.38,
-                    IsExempt = true
+                    Cost = 19385.38
                 },
-                new PrintItem{
+                new PrintItemResultDto{
                     Name = "yoyo", 
-                    Cost = 1829,
-                    IsExempt = true
+                    Cost = 1829
                 }                
             },
             Total = 24608.68

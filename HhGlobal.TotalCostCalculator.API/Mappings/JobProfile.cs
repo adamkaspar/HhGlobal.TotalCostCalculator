@@ -4,12 +4,11 @@ using HhGlobal.TotalCostCalculator.BLL.Models;
 
 namespace HhGlobal.TotalCostCalculator.API.Mappings;
 
-public class AutoMapper : Profile
+public class JobProfile : Profile
 {
-    public AutoMapper()
+    public JobProfile()
     {
         CreateMap<JobDto, Job>();
         CreateMap<JobResult, JobResultDto>();
-        CreateMap<PrintItemDto, PrintItem>().ReverseMap();
     }
 }

@@ -20,12 +20,21 @@ This class then process in sequence final price with tax and margin for given jo
 
 ### HhGlobal.TotalCostCalculator.Tests
 
-Tests project contains unit and integration tests, that covers basic test scenarios. xUnit is used as default test framework.
+Tests project contains unit and integration tests, that covers basic test scenarios. xUnit is used as default test framework, Moq is used as mocking library and FluentAssertions is used as assertion framework.
 
 ## Installation
 
-TotalCostCalculator runs on .NET 8, so .NET 8 runtime is necessary to [install](https://dotnet.microsoft.com/en-us/download/dotnet/8.0).
+TotalCostCalculator runs on .NET 8, so .NET 8 SDK is necessary to [install](https://dotnet.microsoft.com/en-us/download/dotnet/8.0).
 
+To run the aplication, do the following steps:
+
+1. open .NET CLI and go to the HhGlobal.TotalCostCalculator.API folder
+2. type **dotnet run**
+3. project should be built and run after some time
+4. by default, project should run on http://localhost:5121
+5. Swagger UI is supported in development mode (ASPNETCORE_ENVIRONMENT env. variable is set to Development) as well on http://localhost:5121/swagger
+
+Launch settings and default ports is possible to change in HhGlobal.TotalCostCalculator.API\Properties\launchSettings.json file
 ## Usage
 
 There is one endpoint reacheable on path: /api/v1/TotalCostCalculator/CalculateTotalCost. This endpoint is possible to call with POST verb. Endpoint accept message in json format structure:
@@ -60,7 +69,6 @@ Endpoint returns json response in json format, with following structure:
     {
       "name": "string",
       "cost": 0,
-      "isExempt": true
     }
   ],
   "total": 0
@@ -73,7 +81,6 @@ Where:
 | printItems | List of items, that are part of the job.     |
 | name    | Name of the item.    |
 | cost    | Item final cost, when all taxes are applied.    |
-| isExempt    | True or false value, that signals, if basic tax is applied on the item price.   |
 | total    | Total price of the job, when all margins are applied.   |
 
 In case of any error, json message with following structure is returned back:
@@ -93,7 +100,9 @@ Where:
 | statusCode    | Error status code    |
 | message    | Basic information about an error.    |
 
-Application support Swagger UI in development mode, so it could be tested from this interface as well.
+To change application behavior, like tax and margin rates, you can change it in HhGlobal.TotalCostCalculator.API\appsettings.json file in CostCalculations section. You have to re-run the aplication after change.
+
+Application support Swagger UI in development mode on http://localhost:5121/swagger, so it could be tested from this interface as well.
 
 ## Contributing
 
