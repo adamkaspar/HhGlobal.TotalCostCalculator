@@ -26,6 +26,74 @@ Tests project contains unit and integration tests, that covers basic test scenar
 
 TotalCostCalculator runs on .NET 8, so .NET 8 runtime is necessary to [install](https://dotnet.microsoft.com/en-us/download/dotnet/8.0).
 
+## Usage
+
+There is one endpoint reacheable on path: /api/v1/TotalCostCalculator/CalculateTotalCost. This endpoint is possible to call with POST verb. Endpoint accept message in json format structure:
+
+```
+{
+  "isExtraMargin": true,
+  "printItems": [
+    {
+      "name": "string",
+      "cost": 0,
+      "isExempt": true
+    }
+  ]
+}
+```
+Where:
+
+| Property    | Comment |
+| --------  | ------- |
+| isExtraMargin  | True or false value, that signals if extra margin is applied on the job total cost.    |
+| printItems | List of items, that are part of the job.     |
+| name    | Name of the item.    |
+| cost    | Item cost.    |
+| isExempt    | True or false value, that signals, if basic tax is applied on the item price.   |
+
+Endpoint returns json response in json format, with following structure:
+
+```
+{
+  "printItems": [
+    {
+      "name": "string",
+      "cost": 0,
+      "isExempt": true
+    }
+  ],
+  "total": 0
+}
+```
+Where:
+
+| Property    | Comment |
+| --------  | ------- |
+| printItems | List of items, that are part of the job.     |
+| name    | Name of the item.    |
+| cost    | Item final cost, when all taxes are applied.    |
+| isExempt    | True or false value, that signals, if basic tax is applied on the item price.   |
+| total    | Total price of the job, when all margins are applied.   |
+
+In case of any error, json message with following structure is returned back:
+
+```
+{
+  "correlationId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "statusCode": 500,
+  "message": "string"
+}
+```
+Where:
+
+| Property    | Comment |
+| --------  | ------- |
+| correlationId | Error id. Use this error id to locate more information about error in application log.     |
+| statusCode    | Error status code    |
+| message    | Basic information about an error.    |
+
+Application support Swagger UI in development mode, so it could be tested from this interface as well.
 
 ## Contributing
 

@@ -1,13 +1,7 @@
 using Xunit;
-using Moq;
 using FluentAssertions;
-using System.Net.Http;
 using System.Net.Http.Json;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using HhGlobal.TotalCostCalculator.API.Dto;
-using HhGlobal.TotalCostCalculator.BLL.Calculators;
-using HhGlobal.TotalCostCalculator.BLL.Common;
 using HhGlobal.TotalCostCalculator.BLL.Models;
 
 namespace HhGlobal.TotalCostCalculator.Tests.IntegrationTests;
@@ -24,8 +18,6 @@ public class JobCostCalculatorIntegrationTests
         HttpClient = new HttpClient(){
             BaseAddress = new Uri(BASE_ADDRESS)
         };
-        HttpClient.DefaultRequestHeaders.Add("accept", "application/json");
-        HttpClient.DefaultRequestHeaders.Add("content", "application/json");
     }
 
     [Fact]

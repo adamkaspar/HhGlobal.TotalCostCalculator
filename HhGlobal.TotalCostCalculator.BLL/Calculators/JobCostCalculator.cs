@@ -2,6 +2,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using HhGlobal.TotalCostCalculator.BLL.Models;
 using HhGlobal.TotalCostCalculator.BLL.Common;
+using HhGlobal.TotalCostCalculator.BLL.Extensions;
 
 namespace HhGlobal.TotalCostCalculator.BLL.Calculators;
 
@@ -21,7 +22,7 @@ public class JobCostCalculator : IJobCostCalculator
         var totalJobCostWithMargin = job.PrintItems.Sum(printItem => CalculateItemCost(printItem, job.IsExtraMargin));
 
         ////The final cost is rounded to the nearest even cent.
-        var totalJobRoundedCostWithMargin = Double.Round((0.02 / 1.00) * Double.Round(totalJobCostWithMargin * (1.00 / 0.02)), Configuration.NumOfFractionalDigits);
+        var totalJobRoundedCostWithMargin = totalJobCostWithMargin.RoundToNearestEvenValue(Configuration.NumOfFractionalDigits);
 
         Logger.LogDebug($"CalculateJobCost finished. Total cost: {totalJobRoundedCostWithMargin}");
 
