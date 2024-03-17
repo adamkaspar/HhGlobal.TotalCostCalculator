@@ -31,7 +31,7 @@ public class ExceptionHandlingMiddleware
 
         Logger.LogError(exception, $"CorrelationId: {correlationId}. An unexpected error occurred.");
 
-        ExceptionDto response = exception switch
+        var response = exception switch
         {
             ApplicationException _ => new ExceptionDto { CorrelationId = correlationId, StatusCode = HttpStatusCode.BadRequest, Message = "Application exception occurred." },
             _ => new ExceptionDto { CorrelationId = correlationId, StatusCode = HttpStatusCode.InternalServerError, Message = "Internal server error. Please retry later." }
