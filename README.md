@@ -96,7 +96,7 @@ Where:
 
 | Property    | Comment |
 | --------  | ------- |
-| correlationId | Error id. Use this error id to locate more information about error in application log.     |
+| correlationId | Error id. Use this error id to find out more information about error in application log.     |
 | statusCode    | Error status code    |
 | message    | Basic information about an error.    |
 
