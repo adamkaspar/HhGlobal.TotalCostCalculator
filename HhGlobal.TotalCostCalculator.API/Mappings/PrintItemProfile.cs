@@ -1,6 +1,6 @@
 using AutoMapper;
-using HhGlobal.TotalCostCalculator.API.Dto;
-using HhGlobal.TotalCostCalculator.BLL.Models;
+using HhGlobal.TotalCostCalculator.API.Dto.PrintItems;
+using HhGlobal.TotalCostCalculator.BLL.Models.PrintItems;
 
 namespace HhGlobal.TotalCostCalculator.API.Mappings;
 

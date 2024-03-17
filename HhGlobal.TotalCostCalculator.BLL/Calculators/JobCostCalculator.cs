@@ -1,6 +1,7 @@
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using HhGlobal.TotalCostCalculator.BLL.Models;
+using HhGlobal.TotalCostCalculator.BLL.Models.Jobs;
+using HhGlobal.TotalCostCalculator.BLL.Models.PrintItems;
 using HhGlobal.TotalCostCalculator.BLL.Common;
 using HhGlobal.TotalCostCalculator.BLL.Extensions;
 
@@ -52,8 +53,9 @@ public class JobCostCalculator : IJobCostCalculator
             
         Logger.LogDebug($"IsExtraMargin for an item: {printItem.Name} is: {isExtraMargin}. Margin rate is: {marginRate * 100}% and margin is: {margin}.");
 
+        var itemCostWithTax = printItem.Cost + tax;
         //Individual items are rounded to the nearest cent.
-        printItem.Cost = Math.Round((printItem.Cost + tax), Configuration.NumOfFractionalDigits);
+        printItem.Cost = itemCostWithTax.RoundToNearestValue(Configuration.NumOfFractionalDigits);
 
         Logger.LogDebug($"CalculateItemCost for an item: {printItem.Name} finished. Total item cost incl. {taxRate * 100}% tax is: {printItem.Cost}.");
             

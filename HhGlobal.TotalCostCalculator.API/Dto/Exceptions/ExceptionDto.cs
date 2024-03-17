@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace HhGlobal.TotalCostCalculator.API.Dto;
+namespace HhGlobal.TotalCostCalculator.API.Dto.Exceptions;
 
 public class ExceptionDto
 {

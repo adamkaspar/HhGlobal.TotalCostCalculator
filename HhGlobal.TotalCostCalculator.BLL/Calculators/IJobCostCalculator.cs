@@ -1,4 +1,4 @@
-using HhGlobal.TotalCostCalculator.BLL.Models;
+using HhGlobal.TotalCostCalculator.BLL.Models.Jobs;
 
 namespace HhGlobal.TotalCostCalculator.BLL.Calculators;
 

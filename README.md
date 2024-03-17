@@ -40,26 +40,26 @@ Launch settings and default ports is possible to change in HhGlobal.TotalCostCal
 There is one endpoint reacheable on path: /api/v1/TotalCostCalculator/CalculateTotalCost. This endpoint is possible to call with POST verb. Endpoint accept message in json format structure:
 
 ```
-{
-  "isExtraMargin": true,
+{  
   "printItems": [
     {
-      "name": "string",
-      "cost": 0,
+      "name": "envelopes",
+      "cost": 100,
       "isExempt": true
     }
-  ]
+  ],
+  "isExtraMargin": true
 }
 ```
 Where:
 
 | Property    | Comment |
 | --------  | ------- |
-| isExtraMargin  | True or false value, that signals if extra margin is applied on the job total cost.    |
 | printItems | List of items, that are part of the job.     |
 | name    | Name of the item.    |
 | cost    | Item cost.    |
 | isExempt    | True or false value, that signals, if basic tax is applied on the item price.   |
+| isExtraMargin  | True or false value, that signals if extra margin is applied on the job total cost.    |
 
 Endpoint returns json response in json format, with following structure:
 
@@ -67,11 +67,11 @@ Endpoint returns json response in json format, with following structure:
 {
   "printItems": [
     {
-      "name": "string",
-      "cost": 0,
+      "name": "envelopes",
+      "cost": 100,
     }
   ],
-  "total": 0
+  "total": 116
 }
 ```
 Where:

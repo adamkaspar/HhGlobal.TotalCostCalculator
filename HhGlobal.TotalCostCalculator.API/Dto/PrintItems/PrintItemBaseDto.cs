@@ -1,8 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace HhGlobal.TotalCostCalculator.API.Dto;
+namespace HhGlobal.TotalCostCalculator.API.Dto.PrintItems;
 
-public class PrintItemResultDto
+public class PrintItemBaseDto
 {
     [Required]
     public string Name { get; set; }

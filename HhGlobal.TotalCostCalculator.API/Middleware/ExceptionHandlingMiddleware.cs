@@ -1,5 +1,5 @@
 ﻿using System.Net;
-using HhGlobal.TotalCostCalculator.API.Dto;
+using HhGlobal.TotalCostCalculator.API.Dto.Exceptions;
 
 namespace HhGlobal.TotalCostCalculator.API.Middleware;
 

@@ -1,4 +1,4 @@
-﻿namespace HhGlobal.TotalCostCalculator.BLL.Models;
+﻿namespace HhGlobal.TotalCostCalculator.BLL.Models.PrintItems;
 
 public class PrintItem
 {

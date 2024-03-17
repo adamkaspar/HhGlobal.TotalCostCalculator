@@ -1,8 +1,10 @@
 using Xunit;
 using FluentAssertions;
 using System.Net.Http.Json;
-using HhGlobal.TotalCostCalculator.API.Dto;
-using HhGlobal.TotalCostCalculator.BLL.Models;
+using HhGlobal.TotalCostCalculator.API.Dto.Jobs;
+using HhGlobal.TotalCostCalculator.API.Dto.PrintItems;
+using HhGlobal.TotalCostCalculator.BLL.Models.Jobs;
+using HhGlobal.TotalCostCalculator.BLL.Models.PrintItems;
 
 namespace HhGlobal.TotalCostCalculator.Tests.IntegrationTests;
 

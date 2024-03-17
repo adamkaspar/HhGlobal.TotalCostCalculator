@@ -1,9 +1,10 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
-using HhGlobal.TotalCostCalculator.API.Dto;
+using HhGlobal.TotalCostCalculator.API.Dto.Jobs;
+using HhGlobal.TotalCostCalculator.API.Dto.Exceptions;
 using HhGlobal.TotalCostCalculator.BLL.Services;
-using HhGlobal.TotalCostCalculator.BLL.Models;
+using HhGlobal.TotalCostCalculator.BLL.Models.Jobs;
 
 namespace HhGlobal.TotalCostCalculator.API.Controllers;
 

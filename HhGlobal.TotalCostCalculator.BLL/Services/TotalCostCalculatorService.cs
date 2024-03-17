@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using HhGlobal.TotalCostCalculator.BLL.Models;
+using HhGlobal.TotalCostCalculator.BLL.Models.Jobs;
 using HhGlobal.TotalCostCalculator.BLL.Calculators;
 using HhGlobal.TotalCostCalculator.BLL.Common;
 
