@@ -29,10 +29,9 @@ TotalCostCalculator runs on .NET 8, so .NET 8 SDK is necessary to [install](http
 To run the aplication, do the following steps:
 
 1. open .NET CLI and go to the HhGlobal.TotalCostCalculator.API folder
-2. type **dotnet run**
-3. project should be built and run after some time
-4. by default, project should run on http://localhost:5121
-5. Swagger UI is supported in development mode (ASPNETCORE_ENVIRONMENT env. variable is set to Development) as well on http://localhost:5121/swagger
+2. type and run following command **dotnet run**
+3. project should be built and solution should be hosted on http://localhost:5121
+4. Swagger UI is supported in development mode (ASPNETCORE_ENVIRONMENT env. variable is set to Development) as well on http://localhost:5121/swagger
 
 Launch settings and default ports is possible to change in HhGlobal.TotalCostCalculator.API\Properties\launchSettings.json file
 ## Usage
